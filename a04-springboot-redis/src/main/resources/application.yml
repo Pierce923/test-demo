@@ -1,0 +1,11 @@
+# 应用名称
+spring:
+  application:
+    name: springboot-redis
+# 配置redis
+  redis:
+    host: www.redis.5long.cc
+    port: 26379
+# 端口
+server:
+  port: 8084

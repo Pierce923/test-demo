@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.excel.mapper.HotelInfoMapper" >
+
+  <!-- 插入全部数据 -->
+  <insert id="insert" parameterType="com.example.excel.dto.HotelVO">
+      insert into hotel_user_t (
+        Name	           ,
+        CardNo	           ,
+        Descriot	       ,
+        CtfTp	           ,
+        CtfId	           ,
+        Gender	           ,
+        Birthday	       ,
+        Address	           ,
+        Zip	               ,
+        Dirty	           ,
+        District1	       ,
+        District2	       ,
+        District3	       ,
+        District4	       ,
+        District5	       ,
+        District6	       ,
+        FirstNm	           ,
+        LastNm	           ,
+        Duty	           ,
+        Mobile	           ,
+        Tel	               ,
+        Fax	               ,
+        EMail	           ,
+        Nation	           ,
+        Taste	           ,
+        Education	       ,
+        Company	           ,
+        CTel	           ,
+        CAddress	       ,
+        CZip	           ,
+        Family	           ,
+        Version
+      )values (
+        #{name,jdbcType=VARCHAR},
+        #{cardNo,jdbcType=VARCHAR},
+        #{descriot,jdbcType=VARCHAR},
+        #{ctfTp,jdbcType=VARCHAR},
+        #{ctfId,jdbcType=VARCHAR},
+        #{gender,jdbcType=VARCHAR},
+        #{birthday,jdbcType=VARCHAR},
+        #{address,jdbcType=VARCHAR},
+        #{zip,jdbcType=VARCHAR},
+        #{dirty,jdbcType=VARCHAR},
+        #{district1,jdbcType=VARCHAR},
+        #{district2,jdbcType=VARCHAR},
+        #{district3,jdbcType=VARCHAR},
+        #{district4,jdbcType=VARCHAR},
+        #{district5,jdbcType=VARCHAR},
+        #{district6,jdbcType=VARCHAR},
+        #{firstNm,jdbcType=VARCHAR},
+        #{lastNm,jdbcType=VARCHAR},
+        #{duty,jdbcType=VARCHAR},
+        #{mobile,jdbcType=VARCHAR},
+        #{tel,jdbcType=VARCHAR},
+        #{fax,jdbcType=VARCHAR},
+        #{email,jdbcType=VARCHAR},
+        #{nation,jdbcType=VARCHAR},
+        #{taste,jdbcType=VARCHAR},
+        #{education,jdbcType=VARCHAR},
+        #{company,jdbcType=VARCHAR},
+        #{ctel,jdbcType=VARCHAR},
+        #{caddress,jdbcType=VARCHAR},
+        #{czip,jdbcType=VARCHAR},
+        #{family,jdbcType=VARCHAR},
+        #{version,jdbcType=TIMESTAMP}
+      )
+  </insert>
+
+  <insert id="batchInsert" parameterType="java.util.List">
+    insert into hotel_user_t (
+      Name	           ,
+      CardNo	           ,
+      Descriot	       ,
+      CtfTp	           ,
+      CtfId	           ,
+      Gender	           ,
+      Birthday	       ,
+      Address	           ,
+      Zip	               ,
+      Dirty	           ,
+      District1	       ,
+      District2	       ,
+      District3	       ,
+      District4	       ,
+      District5	       ,
+      District6	       ,
+      FirstNm	           ,
+      LastNm	           ,
+      Duty	           ,
+      Mobile	           ,
+      Tel	               ,
+      Fax	               ,
+      EMail	           ,
+      Nation	           ,
+      Taste	           ,
+      Education	       ,
+      Company	           ,
+      CTel	           ,
+      CAddress	       ,
+      CZip	           ,
+      Family	           ,
+      Version
+    )values
+    <foreach collection="list" item="item" separator=",">
+      (
+        #{item.name,jdbcType=VARCHAR},
+        #{item.cardNo,jdbcType=VARCHAR},
+        #{item.descriot,jdbcType=VARCHAR},
+        #{item.ctfTp,jdbcType=VARCHAR},
+        #{item.ctfId,jdbcType=VARCHAR},
+        #{item.gender,jdbcType=VARCHAR},
+        #{item.birthday,jdbcType=VARCHAR},
+        #{item.address,jdbcType=VARCHAR},
+        #{item.zip,jdbcType=VARCHAR},
+        #{item.dirty,jdbcType=VARCHAR},
+        #{item.district1,jdbcType=VARCHAR},
+        #{item.district2,jdbcType=VARCHAR},
+        #{item.district3,jdbcType=VARCHAR},
+        #{item.district4,jdbcType=VARCHAR},
+        #{item.district5,jdbcType=VARCHAR},
+        #{item.district6,jdbcType=VARCHAR},
+        #{item.firstNm,jdbcType=VARCHAR},
+        #{item.lastNm,jdbcType=VARCHAR},
+        #{item.duty,jdbcType=VARCHAR},
+        #{item.mobile,jdbcType=VARCHAR},
+        #{item.tel,jdbcType=VARCHAR},
+        #{item.fax,jdbcType=VARCHAR},
+        #{item.email,jdbcType=VARCHAR},
+        #{item.nation,jdbcType=VARCHAR},
+        #{item.taste,jdbcType=VARCHAR},
+        #{item.education,jdbcType=VARCHAR},
+        #{item.company,jdbcType=VARCHAR},
+        #{item.ctel,jdbcType=VARCHAR},
+        #{item.caddress,jdbcType=VARCHAR},
+        #{item.czip,jdbcType=VARCHAR},
+        #{item.family,jdbcType=VARCHAR},
+        #{item.version,jdbcType=VARCHAR}
+      )
+    </foreach >
+  </insert>
+
+  <select id="select" parameterType="java.util.List" resultType="java.lang.Integer">
+    select count(*) from hotel_user_t t where t.id
+    in
+    <foreach collection="list" item="item" open="(" separator="," close=")">
+      #{item,jdbcType=INTEGER}
+    </foreach>
+  </select>
+
+
+</mapper>

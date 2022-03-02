@@ -1,0 +1,8 @@
+# 应用名称
+spring:
+  application:
+    name: camel
+
+
+server:
+  port: 8080

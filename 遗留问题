@@ -1,0 +1,13 @@
+1.内存对象结构--视频-内存屏障与JVM指令01:40:00
+2.## IdentityHashCode的问题
+  回答白马非马的问题：
+  当一个对象计算过identityHashCode之后，不能进入偏向锁状态
+  https://cloud.tencent.com/developer/article/1480590
+   https://cloud.tencent.com/developer/article/1484167
+
+  https://cloud.tencent.com/developer/article/1485795
+
+  https://cloud.tencent.com/developer/article/1482500
+
+
+3.RateLimiter类-限流
